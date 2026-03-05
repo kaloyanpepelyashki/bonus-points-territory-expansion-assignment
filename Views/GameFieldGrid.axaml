@@ -1,35 +1,13 @@
-﻿<UserControl 
-    xmlns="https://github.com/avaloniaui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:Territory_Expansion_Game.ViewModels"
-    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-    x:Class="Territory_Expansion_Game.Views.GameFieldGrid"
-    x:DataType="vm:GameViewModel">
-
-  <ItemsControl Name="GameItemsControl" ItemsSource="{Binding Cells}">
-      <ItemsControl.ItemsPanel>
-          <ItemsPanelTemplate>
-              <UniformGrid Name="GameGrid"/>
-          </ItemsPanelTemplate>
-      </ItemsControl.ItemsPanel>
-      <ItemsControl.ItemTemplate>
-          <DataTemplate DataType="vm:CellViewModel">
-              <Button Command="{Binding ClickCommand}"
-                      Padding="0"
-                      Margin="1"
-                      HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch">
-                  <Button.Background>
-                      <MultiBinding Converter="{StaticResource CellColorConverter}">
-                          <Binding Path="Owner"/>
-                          <Binding Path="IsLegalMove"/>
-                      </MultiBinding>
-                  </Button.Background>
-              </Button>
-          </DataTemplate>
-      </ItemsControl.ItemTemplate>
-  </ItemsControl>
-
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Territory_Expansion_Game.Views.GameFieldGrid">
+    
+            <Grid x:Name="GameGrid"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Margin="4"
+                  Background="Transparent"/>
 </UserControl>

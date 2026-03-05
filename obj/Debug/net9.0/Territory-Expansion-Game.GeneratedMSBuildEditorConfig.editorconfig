@@ -17,20 +17,23 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Territory-Expansion-Game
-build_property.ProjectDir = C:\Users\Максим\RiderProjects\bonus-points-territory-expansion-assignment\
+build_property.ProjectDir = C:\Users\kaloy\Desktop\projects\university\AOP\bonus-point-assignment\territory-expansion\Territory-Expansion-Game\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Максим/RiderProjects/bonus-points-territory-expansion-assignment/App.axaml]
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Максим/RiderProjects/bonus-points-territory-expansion-assignment/Views/GameControlButtonsStack.axaml]
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/GameControlButtonsStack.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Максим/RiderProjects/bonus-points-territory-expansion-assignment/Views/GameFieldGrid.axaml]
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/GameFieldGrid.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/Максим/RiderProjects/bonus-points-territory-expansion-assignment/Views/MainWindow.axaml]
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/ReSizePopUpWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
