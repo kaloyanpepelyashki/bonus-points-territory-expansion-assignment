@@ -1,7 +1,9 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+using Avalonia.Controls.Primitives;
 using Avalonia.Media;
+using Avalonia.VisualTree;
+using Territory_Expansion_Game.ViewModels;
 
 namespace Territory_Expansion_Game.Views;
 
@@ -19,6 +21,7 @@ public partial class GameFieldGrid : UserControl
     public GameFieldGrid()
     {
         InitializeComponent();
+        DataContextChanged +=  OnDataContextChange;
         GenerateGrid(GridSize); 
     }
 
@@ -31,7 +34,7 @@ public partial class GameFieldGrid : UserControl
             GenerateGrid((int)change.NewValue!);
         }
     }
-    
+
     private void GenerateGrid(int size)
     {
         GameGrid.Children.Clear();
@@ -57,6 +60,34 @@ public partial class GameFieldGrid : UserControl
             Grid.SetRow(cell, r);
             Grid.SetColumn(cell, c);
             GameGrid.Children.Add(cell);
+
+
+        }
+    }
+
+    private void OnDataContextChange(object? sender, System.EventArgs e)
+    {
+        if (DataContext is GameViewModel vm)
+        {
+            vm.PropertyChanged += (_, args) =>
+            {
+                if (args.PropertyName is nameof(GameViewModel.BoardCols) or nameof(GameViewModel.BoardCols))
+                {
+                    UpdateGrid(vm);
+                }
+            };
+            UpdateGrid(vm);
+        }
+    }
+
+    private void UpdateGrid(GameViewModel vm)
+    {
+        var itemsControl = this.FindControl<ItemsControl>("GameItemsControl");
+        var panel = itemsControl?.ItemsPanelRoot as UniformGrid;
+        if (panel != null)
+        {
+            panel.Columns = vm.BoardCols;
+            panel.Rows = vm.BoardRows;
         }
     }
 

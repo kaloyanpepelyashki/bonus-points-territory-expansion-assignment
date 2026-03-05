@@ -1,16 +1,38 @@
-﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Territory_Expansion_Game.Views.GameControlButtonsStack">
-    
-    <StackPanel 
-                Width="200"
-                Spacing="60"
-    ><Button FontSize="25" Padding="30,15">Play Game</Button>
-        <Button FontSize="25" Padding="30,15">Save Game</Button> 
-        <Button FontSize="25" Padding="30,15">Load Game</Button>
-    </StackPanel>
-    
+﻿<UserControl 
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:Territory_Expansion_Game.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="200" d:DesignHeight="450"
+        x:Class="Territory_Expansion_Game.Views.GameControlButtonsStack"
+        x:DataType="vm:GameViewModel">
+
+        <StackPanel Width="200" Spacing="20">
+
+        <Button FontSize="20"
+                Padding="30,12"
+                HorizontalAlignment="Center"
+                Command="{Binding PlayGameCommand}"
+                Content="Play Game"/>
+
+        <Button FontSize="20"
+                Padding="30,12"
+                HorizontalAlignment="Center"
+                Command="{Binding SaveGameCommand}"
+                Content="Save Game"/>
+
+        <Button FontSize="20"
+                Padding="30,12"
+                HorizontalAlignment="Center"
+                Command="{Binding LoadGameCommand}"
+                Content="Load Game"/>
+
+        <TextBlock Text="{Binding StatusMessage}"
+                   FontSize="14"
+                   TextWrapping="Wrap"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,0"/>
+
+        </StackPanel>
 </UserControl>
