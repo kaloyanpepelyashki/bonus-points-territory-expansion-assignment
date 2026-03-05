@@ -16,8 +16,13 @@
              to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
-
     
-     <components:GameFieldGrid/>
+    <Grid ColumnDefinitions="3*, 1*" Margin="65">
+            <components:GameFieldGrid Grid.Column="0"/>
+            <StackPanel Grid.Column="1">
+                <components:GameControlButtonsStack />
+                <Button>Size</Button>
+            </StackPanel>
+    </Grid>
 
 </Window>

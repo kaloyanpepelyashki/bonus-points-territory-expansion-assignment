@@ -4,16 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Territory_Expansion_Game.Views.GameFieldGrid">
-    <Grid RowDefinitions="*,*,*,*,*" ColumnDefinitions="*, *"
-          Margin="4" Background="Transparent">
-
-        <Border Grid.Row="0" Grid.Column="0" Background="Blue"/>
-        <Border Grid.Row="0" Grid.Column="1" Background="Green"/> 
-        <Border Grid.Column="0" Grid.Row="1" Background="Green"/>
-        <Border Grid.Column="1" Grid.Row="1" Background="Red"/>
-        <Border Grid.Row="2" Background="Red"/>
-        <Border Grid.Row="3" Background="Blue"/>
-        <Border Grid.Row="4" Background="Green"/>
-
-    </Grid> 
+    
+            <Grid x:Name="GameGrid"
+                  Margin="4"
+                  Background="Transparent"/>
 </UserControl>

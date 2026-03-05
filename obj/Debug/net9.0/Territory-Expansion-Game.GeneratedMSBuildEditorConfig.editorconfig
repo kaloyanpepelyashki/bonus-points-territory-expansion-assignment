@@ -26,6 +26,9 @@ build_property.EnableCodeStyleSeverity =
 [C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/GameControlButtonsStack.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/GameFieldGrid.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
