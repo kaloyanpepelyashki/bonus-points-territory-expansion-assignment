@@ -2,12 +2,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Territory_Expansion_Game.Views.GameFieldGrid">
-    
-            <Grid x:Name="GameGrid"
-                  HorizontalAlignment="Stretch"
-                  VerticalAlignment="Stretch"
-                  Margin="4"
-                  Background="Transparent"/>
+             xmlns:vm="using:Territory_Expansion_Game.ViewModels"
+             xmlns:converters="using:Territory_Expansion_Game.Converters"
+             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="500"
+             x:Class="Territory_Expansion_Game.Views.GameFieldGrid"
+             x:Name="GameFieldGridRoot"
+             x:DataType="vm:MainWindowViewModel">
+
+    <ItemsControl
+        ItemsSource="{Binding #GameFieldGridRoot.GameViewModel.Cells}"
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid
+                    Rows="{Binding #GameFieldGridRoot.GameViewModel.BoardRows}"
+                    Columns="{Binding #GameFieldGridRoot.GameViewModel.BoardCols}"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate x:DataType="vm:CellViewModel">
+                <Button Command="{Binding ClickCommand}"
+                        Padding="0"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch"
+                        Margin="1">
+                    <Button.Background>
+                        <MultiBinding Converter="{StaticResource CellColorConverter}">
+                            <Binding Path="Owner"/>
+                            <Binding Path="IsLegalMove"/>
+                        </MultiBinding>
+                    </Button.Background>
+                    <Panel/>
+                </Button>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
 </UserControl>

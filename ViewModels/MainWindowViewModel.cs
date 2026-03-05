@@ -1,14 +1,20 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.Generic;
 
 namespace Territory_Expansion_Game.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public string Greeting { get; } = "Welcome to Avalonia!";
-    
-    
-    //Default Grid Size should be 6
-    [ObservableProperty] 
-    private int gridSize  = 6;
+    public GameViewModel GameViewModel { get; } = new GameViewModel();
 
+    public List<int> BoardSizeOptions { get; } = new List<int> { 4, 6, 8, 10, 12 };
+
+    [ObservableProperty]
+    private int _gridSize = 6;
+
+    partial void OnGridSizeChanged(int value)
+    {
+        GameViewModel.BoardRows = value;
+        GameViewModel.BoardCols = value;
+    }
 }
