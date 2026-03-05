@@ -18,10 +18,12 @@
     </Design.DataContext>
     
     <Grid ColumnDefinitions="3*, 1*" Margin="65">
-            <components:GameFieldGrid Grid.Column="0"/>
+            <components:GameFieldGrid  HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch" GridSize="{Binding GridSize}" Grid.Column="0"/>
             <StackPanel Grid.Column="1">
                 <components:GameControlButtonsStack />
-                <Button>Size</Button>
+                <Button Click="OpenResizePopup">Size</Button>
+                <TextBlock Text="{Binding GridSize}" /> 
             </StackPanel>
     </Grid>
 

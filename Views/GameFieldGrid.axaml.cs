@@ -7,45 +7,56 @@ namespace Territory_Expansion_Game.Views;
 
 public partial class GameFieldGrid : UserControl
 {
+    public static readonly StyledProperty<int> GridSizeProperty =
+        AvaloniaProperty.Register<GameFieldGrid, int>(nameof(GridSize), 6);
+
+    public int GridSize
+    {
+        get => GetValue(GridSizeProperty);
+        set => SetValue(GridSizeProperty, value);
+    }
+
     public GameFieldGrid()
     {
         InitializeComponent();
-        GenerateGrid();
+        GenerateGrid(GridSize); 
     }
 
-    private void GenerateGrid()
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
-        int size = 9;
+        base.OnPropertyChanged(change);
 
-        // Creats rows
-        for (int r = 0; r < size; r++)
+        if (change.Property == GridSizeProperty)
         {
-            GameGrid.RowDefinitions.Add(new RowDefinition(GridLength.Star));
+            GenerateGrid((int)change.NewValue!);
         }
+    }
+    
+    private void GenerateGrid(int size)
+    {
+        GameGrid.Children.Clear();
+        GameGrid.RowDefinitions.Clear();
+        GameGrid.ColumnDefinitions.Clear();
 
-        // Creates  columns for the grid
+        for (int r = 0; r < size; r++)
+            GameGrid.RowDefinitions.Add(new RowDefinition(GridLength.Star));
+
+        for (int c = 0; c < size; c++)
+            GameGrid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
+
+        for (int r = 0; r < size; r++)
         for (int c = 0; c < size; c++)
         {
-            GameGrid.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
-        }
-
-        // Generates the   cell of the grid
-        for (int r = 0; r < size; r++)
-        {
-            for (int c = 0; c < size; c++)
+            var cell = new Border
             {
-                var cell = new Border
-                {
-                    Background = GetCellColor(r, c),
-                    BorderBrush = Brushes.Black,
-                    BorderThickness = new Thickness(1)
-                };
+                BorderThickness = new Thickness(1),
+                BorderBrush = Brushes.Black,
+                Background = ((r + c) % 2 == 0) ? Brushes.LightGray : Brushes.White
+            };
 
-                Grid.SetRow(cell, r);
-                Grid.SetColumn(cell, c);
-
-                GameGrid.Children.Add(cell);
-            }
+            Grid.SetRow(cell, r);
+            Grid.SetColumn(cell, c);
+            GameGrid.Children.Add(cell);
         }
     }
 

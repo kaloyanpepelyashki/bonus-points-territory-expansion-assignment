@@ -34,3 +34,6 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
 [C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/kaloy/Desktop/projects/university/AOP/bonus-point-assignment/territory-expansion/Territory-Expansion-Game/Views/ReSizePopUpWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

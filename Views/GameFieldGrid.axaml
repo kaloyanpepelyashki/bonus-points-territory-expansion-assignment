@@ -6,6 +6,8 @@
              x:Class="Territory_Expansion_Game.Views.GameFieldGrid">
     
             <Grid x:Name="GameGrid"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
                   Margin="4"
                   Background="Transparent"/>
 </UserControl>
